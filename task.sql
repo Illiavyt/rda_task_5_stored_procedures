@@ -1,4 +1,8 @@
-USE ShopDB; 
+DROP DATABASE IF EXISTS ShopDB;
+CREATE DATABASE IF NOT EXISTS ShopDB;
+USE ShopDB;
+
+DROP PROCEDURE IF EXISTS get_warehouse_product_inventory;
 
 DELIMITER $$
 
@@ -13,4 +17,3 @@ BEGIN
 END$$
 
 DELIMITER ;
-
