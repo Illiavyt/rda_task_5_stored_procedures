@@ -1,5 +1,3 @@
-DROP DATABASE IF EXISTS ShopDB;
-CREATE DATABASE IF NOT EXISTS ShopDB;
 USE ShopDB;
 
 DROP PROCEDURE IF EXISTS get_warehouse_product_inventory;
@@ -9,11 +7,12 @@ DELIMITER $$
 CREATE PROCEDURE get_warehouse_product_inventory(IN warehouseId INT)
 BEGIN
     SELECT 
-        p.Name AS ProductName,
-        pi.WarehouseAmount
+        p.Name AS Name,
+        pi.WarehouseAmount AS WarehouseAmount
     FROM ProductInventory pi
     JOIN Products p ON pi.ProductID = p.ID
     WHERE pi.WarehouseID = warehouseId;
 END$$
 
 DELIMITER ;
+
